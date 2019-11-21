@@ -19,7 +19,7 @@ def menu():
     do = input(">>>").title()
     if do == "Book Info" or do == "Book" or do == "Info" or do == "B" or do == "I" or do == "Bi":
         print("Which book would you like to see information for?")
-        print(f"Choose from \"{textbook1.title}\" or \"{textbook2.title}\"")
+        print(f"Choose \"{textbook1.title}\" or \"{textbook2.title}\"")
         book = input(">>>").title()
         if book == textbook1.title:
             textbook1.book_info()
@@ -28,7 +28,14 @@ def menu():
             textbook2.book_info()
 
     elif do == "Modify Book Contents" or do == "Modify" or do == "Contents" or do == "M" or do == "C" or do == "Mbc":
-        print()
+        print("Which textbook do you want to modify?")
+        print(f'Choose "{textbook1.title}" or "{textbook2.title}"')
+        book = input(">>>")
+        if book == textbook1.title:
+            textbook1.modify()
+
+        elif book == textbook2.title:
+            textbook2.modify()
 
     elif do == "Leave" or do == "L":
         print("Have a good day")

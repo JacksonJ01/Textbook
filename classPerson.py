@@ -11,4 +11,4 @@ class Person:
         self.age = age
 
     def details(self):
-        return "Their name is " + self.first + " " + self.last + " and they are " + str(self.age)
+        return self.first + " " + self.last + " and they are " + str(self.age)
