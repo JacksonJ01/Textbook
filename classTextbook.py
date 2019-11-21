@@ -26,6 +26,15 @@ class Textbook:
             print("Warning! Your quantity is below 5.")
         return self.quantity
 
+    def book_info(self):
+        print("Title: " + self.title)
+        print(f"The author is: {self.author.details()}")
+        print("It is the", self.edition, "edition")
+        print("The ISBN number is: " + self.isbn)
+        print(f"The publisher of \"{self.title}\" is: {self.pub}")
+        print("It was published in", self.year)
+        print("There are " + self.quantity + " left in stock")
+        print(f"This book goes for {self.price} on the market")
 
-person = Person("Jared", "Jackson", 18)
-person.details1()
+    def modify(self):
+        print()
