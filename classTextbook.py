@@ -25,3 +25,7 @@ class Textbook:
         if self.quantity < 5:
             print("Warning! Your quantity is below 5.")
         return self.quantity
+
+
+person = Person("Jared", "Jackson", 18)
+person.details1()
