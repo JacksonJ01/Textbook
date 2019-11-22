@@ -2,7 +2,6 @@
 # 11/20/19
 # This is the class file for the textbook
 from classPerson import Person
-from Textbook import menu
 
 
 class Textbook:
@@ -36,66 +35,3 @@ class Textbook:
         print("It was published in", self.year)
         print("There are " + self.quantity + " left in stock")
         print(f"This book goes for {self.price} on the market")
-
-    def modify(self):
-        print("What would you like to modify?")
-        print("Title")
-        print("Author")
-        print("Edition")
-        print("ISBN")
-        print("Publisher")
-        print("Year")
-        print("Quantity")
-        print("Price")
-        change = input(">>>").title()
-        if change == "Title":
-            print("And what would you like to change that to??")
-            self.title = input(">>>").title()
-            print("The change has been made.")
-            print("Do you wish to make another change?")
-            another = input(">>>").title()
-            if another == "Yes" or another == "Y":
-                self.modify()
-            else:
-                print("Okay, I will take you back to the menu.")
-                menu()
-        elif change == "Author":
-            print("What about the author would you like to change?")
-            print("First Name")
-            print("Last Name")
-            print("Age")
-            change = input(">>>").title()
-            if change == "First" or change == "First Name" or change == "F" or change == "Fn":
-                print("What is the new first name?")
-                self.author.first = input(">>>").title()
-                print("The change has been made.")
-                print("Do you wish to make another change?")
-                another = input(">>>").title()
-                if another == "Yes" or another == "Y":
-                    self.modify()
-                else:
-                    print("Okay, I will take you back to the menu.")
-                    menu()
-            elif change == "First" or change == "Last Name" or change == "L" or change == "Ln":
-                print("What is the new last name?")
-                self.author.last = input(">>>").title()
-                print("The change has been made.")
-                print("Do you wish to make another change?")
-                another = input(">>>").title()
-                if another == "Yes" or another == "Y":
-                    self.modify()
-                else:
-                    print("Okay, I will take you back to the menu")
-                    menu()
-
-            elif change == "Age" or change == "A":
-                print("What is the new age?")
-                self.author.age = input(">>>")
-                print("The change has been made.")
-                print("Do you wish to make another change?")
-                another = input(">>>").title()
-                if another == "Yes" or another == "Y":
-                    self.modify()
-                else:
-                    print("Okay, I will take you back to the menu")
-                    menu()
