@@ -228,7 +228,11 @@ def menu():
         print("Okay, back to the menu we go")
         menu()
 
-#
+
+# The following code is used to ask the user for the information of the two textbooks
+# The reason it isn't in a loop is because i didn't want to ask the same questions twice
+# To get around the I thought about importing random to get randomized questions but that would have been more that too much
+
 input("CLICK HERE, then PRESS ENTER")
 
 print("Hello user, how are you?")

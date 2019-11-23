@@ -12,17 +12,3 @@ class Person:
 
     def details(self):
         return self.first + " " + self.last + " and they are " + str(self.age)
-
-
-def test():
-    print("This is a test and it better work")
-    print("Let me include an input statement")
-
-
-def testing():
-    print("Im gonna call the test method")
-    test()
-    testing()
-
-
-testing()
