@@ -5,6 +5,11 @@ from classTextbook import Textbook
 
 
 def modify(self):
+    """This method will enable the user to make changes to any aspect of either textbook
+    Each outermost if and elif statement is linked to the "change" variable which holds the value of what ever the user enters
+    After the user is done, they can modify something else and if not, they will be taken back to the menu
+    The menu method can't be called from another method above it, so it is called after the "another" variable goes to the else statement"""
+
     print("\nWhat would you like to modify?")
     print("Title")
     print("Author")
@@ -88,7 +93,7 @@ def modify(self):
         elif another == "No" or another == "N":
             print("Okay, I will take you back to the menu?")
 
-    elif change == "Publisher":
+    elif change == "Publisher" or change == "Pub":
         print("What would you like to change about the publisher")
         self.pub = input(">>>")
         print("The change has been made")
@@ -99,7 +104,7 @@ def modify(self):
         elif another == "No" or another == "N":
             print("Okay, I will take you back to the menu?")
 
-    elif change == "Year":
+    elif change == "Year" or change == "Y":
         print("What would you like to change the year to?.")
         self.year = int(input(">>>"))
         print("The change has been made.")
@@ -110,34 +115,56 @@ def modify(self):
         elif another == "No" or another == "N":
             print("Okay, I will take you back to the menu?")
 
-    elif change == "Quantity":
+    elif change == "Quantity" or change == "Q":
         print("Has the quantity increased or decreased?")
         new = input(">>>").title()
         if new == "Increased" or new == "Increase" or new == "I":
             print("Okay, I will add one book to the invetory.")
             self.add_inv()
             print("It has been done.")
-            print("I will take you back to the menu now.")
+            print("Do you wish to make another change?")
+            another = input(">>>").title()
+            if another == "Yes" or another == "Y":
+                self.modify()
+            elif another == "No" or another == "N":
+                print("Okay, I will take you back to the menu?")
 
         elif new == "Decreased" or new == "Decrease" or new == "D":
             print("Okay, I will take a book out of the invetory.")
             self.deduct_inv()
             print("It has been done.")
-            print("I will take you to the menu.")
+            print("Do you wish to make another change?")
+            another = input(">>>").title()
+            if another == "Yes" or another == "Y":
+                self.modify()
+            elif another == "No" or another == "N":
+                print("Okay, I will take you back to the menu?")
 
-    elif change == "Price":
+    elif change == "Price" or change == "P":
         print("What? The price changed? What did it change to?")
         new = int(input(">>>"))
         if new < self.price:
-            print("Oh, the price went down?")
-            print("Nice?")
+            print("Oh, the price went down, nice")
         elif new > self.price:
-            print("What?! The price went up? Dang.")
+            print("What?! The price went up? Dang, that sucks.")
+
         self.price = new
+        print("Do you wish to make another change?")
+        another = input(">>>").title()
+        if another == "Yes" or another == "Y":
+            self.modify()
+        elif another == "No" or another == "N":
+            print("Okay, I will take you back to the menu?")
 
 
 def menu():
-    print("What would you like to do at the menu?")
+    """The menu presents three options for the user
+    If they wish to see the book info, they have to type its title
+    If they wish to modify it, they must also type its title
+    If they wish to leave then they can
+    The Info option asks the user if they want to return to the menu
+    The modify option automatically take the user to the menu after the decline to make another change"""
+    print("What would you like to do in the menu?")
     print("You can see:")
     print("-Book Info")
     print("Or you can:")
@@ -152,11 +179,9 @@ def menu():
         book = input(">>>").title()
         if book == textbook1.title:
             textbook1.book_info()
-            menu()
 
         elif book == textbook2.title:
             textbook2.book_info()
-            menu()
 
     elif do == "Modify Book Contents" or do == "Modify" or do == "Contents" or do == "M" or do == "C" or do == "Mbc":
         print("Which textbook do you want to modify?")
@@ -203,7 +228,7 @@ def menu():
         print("Okay, back to the menu we go")
         menu()
 
-
+#
 input("CLICK HERE, then PRESS ENTER")
 
 print("Hello user, how are you?")
